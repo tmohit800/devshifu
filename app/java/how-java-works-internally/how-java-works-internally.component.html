@@ -1,0 +1,63 @@
+    <p>To understand how java works internally, we will first understand three major part of Java compiler.</p>
+    <fieldset>
+        <legend>JVM</legend>
+        <p>
+            JVM is an engine that provides a runtime environment to drive the Java Code or applications. It converts
+            Java bytecode into machine language. JVM is a part of Java Run Environment (JRE). It cannot be separately
+            downloaded and installed. To install JVM, you need to install JRE. The full form of JVM is Java Virtual
+            Machine.
+
+            In many other programming languages, the compiler produces machine code for a specific system. However, Java
+            compiler produces code for a virtual machine which is called as JVM.
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>JRE</legend>
+        <p>
+            JRE is a piece of a software which is designed to run other software. It contains the class libraries,
+            loader class, and JVM. In simple terms, if you want to run Java program you need JRE. If you are not a
+            programmer, you don't need to install JDK, but just JRE to run Java programs. Though, all JDK versions comes
+            bundled with Java Runtime Environment, so you do not need to download and install the JRE separately in your
+            PC. The full form of JRE is Java Runtime Environment.
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>JDK</legend>
+        <p>
+            JDK is a software development environment used for making applets and Java applications. The full form of
+            JDK is Java Development Kit. Java developers can use it on Windows, macOS, Solaris, and Linux. JDK helps
+            them to code and run Java programs. It is possible to install more than one JDK version on the same
+            computer.
+        </p>
+    </fieldset>
+    <br>
+    <div>
+        Java compiler first converts sourcecode to bytecode, an intermediate code after that JVM execute this bytecode
+        to machine level code and then processing done to get required result. As bytecode is introduced in Java, this
+        makes Java a platform independent language as any system having the JVM can read that bytecode and execute the
+        process.
+    </div>
+    <fieldset>
+        <p>
+            This is how Java works in most simple way: When we write a piece of code and click on run, these steps are
+            executed in order to get our result.
+        </p>
+        <ul>
+            <li>
+                Java compiler(javac) will convert our piece of code into bytecode.
+            </li>
+            <li>
+                JVM will be called and convert this bytecode to machine level code.
+            </li>
+            <li>
+                System processor will get signals from the OS that Java program is trying to execute.
+            </li>
+            <li>
+                Then processor will load into memory, takes up the machine level code convert it into signals(ON or OFF)
+                and on behalf of these signals some combinational logic will occur and we get our result.
+            </li>
+        </ul>
+    </fieldset>
+    <br>
+    <p class="text-center" style="background-color: yellow;">As now, we are familiar with java internal working, let's dive into Java First
+        Program.</p>

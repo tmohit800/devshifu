@@ -1,0 +1,90 @@
+<p>datepicker works!</p>
+<p>Datepicker are required nowadays very frequently used with different requirements in different
+    formats,different ranges. But sadly, HTML do not provide any mechanism to tweak its datepicker and if there
+    are any ways they are so complex.
+<p>To get rid of this problem we will look some angular libraries which provide datepicker functionality like
+    angular material, prime-ng.
+<p>Let's look Angular Material Datepicker, hopefully you have gone through the our angular material setup. If no
+    please check first before, it will help you to understand this section better, <a href="#">Read here</a>.
+<div class="text-center"><span class="font-weight-bold">Demo for below code.</span>
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Choose a date</mat-label><input [(ngModel)]="myDateVal" [matDatepickerFilter]="dateFilter"
+            [matDatepicker]="picker" [max]="maxDate" [min]="minDate" matInput>
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div><br><br>
+<ul>
+    <li>Go to parent module of componentin which datepicker need to be implemented, and import <span
+            style="background-color:#ff0">MatFormFieldModule, MatDatepickerModule,MatNativeDateModule,
+            MatInputModule</span> and add them to imports of @NgModule.<div class="jumbotron"><button
+                (click)="copyCode('datepickerimport')" class="copyCodeBtn">Copy</button>
+            <pre id="datepickerimport" class="codePre">
+import {{ob}} MatDatepickerModule {{cb}} from '@angular/material/datepicker';
+import {{ob}} MatFormFieldModule {{cb}} from '@angular/material/form-field';
+import {{ob}} MatNativeDateModule {{cb}} from '@angular/material/core';
+import {{ob}} MatInputModule {{cb}} from '@angular/material/input';</pre>
+        </div>Use only "@angular/material" if angular version is less than 9.
+    <li>Now go to HTML of your component and paste below code.<div class="jumbotron"><button
+                (click)="copyCode('datepickerhtml')" class="copyCodeBtn">Copy</button>
+            <pre id="datepickerhtml" class="codePre">
+&lt;mat-form-field class="example-full-width" appearance="fill">
+&lt;mat-label>Choose a date&lt;/mat-label>
+&lt;input [(ngModel)] = "myDateVal" matInput [matDatepicker]="picker">
+&lt;mat-datepicker-toggle matSuffix [for]="picker">&lt;/mat-datepicker-toggle>
+&lt;mat-datepicker #picker>&lt;/mat-datepicker>
+&lt;/mat-form-field></pre>
+        </div>
+    <li>To add min and max validation, add <code>[min]="minDate" [max]="maxDate"</code> to the input and set
+        variable minDate and maxDate in component.ts file. Also add this snippet to ngInit of component.ts file.
+        <code>const currentDate = new Date(); this.minDate = new Date(currentDate.getFullYear(),currentDate.getMonth()-1 , 1); this.maxDate = currentDate;</code>
+    <li>To exclude weekends from calendar we can use filters, add
+        <code>[matDatepickerFilter]="dateFilter"</code> and add below function in component.ts file.<div
+            class="jumbotron"><button (click)="copyCode('excludeWeekdays')" class="copyCodeBtn">Copy</button>
+            <pre id="excludeWeekdays" class="codePre">
+dateFilter = date=>{{ob}}
+    var d = new Date(date);
+    const day = d.getDay();
+    return day!=0&&day!=6;
+{{cb}}</pre>
+        </div>
+</ul>
+<p>By default the format of the datepicker is M/D/YYYY. To change it, the first simplest way is using locale,
+    but if it does not help you to get desired format, you can create your own custom format of datepicker.
+<h5>Let's see how locale works.</h5>
+<ul>
+    <li>Install moment and @angular/material-moment-adapter by using command, <code>npm i moment --save</code>
+        and <code>npm i @angular/material-moment-adapter</code>
+    <li>Go to module.ts file and do below steps:<ul>
+            <li>Import MatMomentDateModule, <code>import {{ob}} MatMomentDateModule {{cb}}</code> from
+                @angular/material-moment-adapter, and add it to imports.
+            <li>import MAT_DATE_LOCALE,
+                <code>import {{ob}} MAT_DATE_LOCALE {{cb}} from '@angular/material/core';</code>
+            <li>In providers of @NgModule, add this
+                <code>{{ob}}provide: MAT_DATE_LOCALE, useValue: 'en_IN'{{cb}}</code>
+        </ul>
+    <li>The datepicker now display value in D/M/YYYY format.
+</ul><br>
+<h5>Now we have seen how locale works, let's try our own custom formatter.</h5>
+<p class="highlightedItem"><b>Note: </b>If you are using custom formatter, remove locale provider entry i.e.
+    <code>{{ob}}provide: MAT_DATE_LOCALE, useValue: 'en_IN'{{cb}}</code> and also remove
+    <code>MatMomentDateModule</code> import.
+<ul>
+    <li>Import MomentDateModule i.e.
+        <code>import {{ob}} MomentDateModule {{cb}} from '@angular/material-moment-adapter';</code>
+    <li>Add below code to providers of @NgModule section<br>
+        <div class="jumbotron"><button (click)="copyCode('customFormatterProvider')"
+                class="copyCodeBtn">Copy</button>
+            <pre id="customFormatterProvider" class="codePre">
+{{ob}}
+provide: MAT_DATE_FORMATS, useValue:{{ob}}
+    display: {{ob}}
+        dateInput: 'DD/MM/YYYY',
+        monthYearLabel: 'MMM YYYY',
+        dateA11yLabel: 'LL',
+        monthYearA11yLabel: 'MMMM YYYY'
+    {{cb}}
+{{cb}}{{cb}}
+</pre>
+        </div>
+</ul>

@@ -1,0 +1,85 @@
+    <h5>We are using npm module i.e. ng-multiselect-dropdown in below code. This code is applicable for angular2+
+        and not for angularJS.</h5>
+    <ul>
+        <li>Install multiselect-dropdown by running this 'npm install ng-multiselect-dropdown'.
+        <li>Add <span class="codeSnippet">"NgMultiSelectDropDownModule.forRoot()"</span> in imports section of your
+            parent module.ts file. By default it will be app.module.ts but if you have parent module for example A
+            over app module and B component is child of A module then you have to add this snippet in A.module.ts
+            file. Its import will be <span class="codeSnippet">"import {{ob}} NgMultielectDropDownModule {{cb}} from
+                'ng-multiselect-dropdown'; "</span>
+        <li>Go to your ts file of the component in which you want to add multiselectdropdown and paste below code.
+            <div class="jumbotron"><button (click)="copyCode('dropdowntsfile')" class="copyCodeBtn">Copy</button>
+                <pre id="dropdowntsfile" class="codePre">
+dropdownList = [];
+selectedItems = [];
+dropdownSettings: IDropdownSettings = {{ob}}{{cb}};
+
+setDropdownValue(){{ob}}
+this.dropdownList = [
+    {{ob}}item_id: 1, item_text: 'Mumbai' {{cb}},
+    {{ob}}item_id: 2, item_text: 'Bangaluru' {{cb}},
+    {{ob}}item_id: 3, item_text: 'Pune' {{cb}},
+    {{ob}}item_id: 4, item_text: 'Navsari' {{cb}},
+    {{ob}}item_id: 5, item_text: 'New Delhi' {{cb}}
+];
+this.selectedItems = [
+    {{ob}}item_id: 3, item_text: 'Pune' {{cb}},
+    {{ob}}item_id: 4, item_text: 'Navsari' {{cb}}
+];
+this.dropdownSettings = {{ob}}
+    singleSelection: false,
+    idField: 'item_id',
+    textField: 'item_text',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 3,
+    allowSearchFilter: true
+{{cb}};
+
+onItemSelect(item: any) {{ob}}
+console.log(item);
+{{cb}}
+onSelectAll(items: any) {{ob}}
+console.log(items);
+{{cb}}</pre>
+            </div>
+        <li>Call setDropdownValue method in <span class="codeSnippet">ngInit()</span>. Also import <span
+                class="codeSnippet">"import {{ob}}IDropdownSettings {{cb}} from 'ng-multiselect-dropdown'";</span>
+        <li>Open HTML file and paste below code.<br>
+            <div class="jumbotron"><button (click)="copyCode('dropdownhtml')" class="copyCodeBtn"
+                    type="button">Copy</button>
+                <pre id="dropdownhtml" class="codePre">
+    &lt;ng-multiselect-dropdown
+    [placeholder]="'custom placeholder'"
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    [(ngModel)]="selectedItems"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    >&lt;/ng-multiselect-dropdown></pre>
+            </div>
+        <li>Run the code, a dropdown will appear with values Pune and Navsari.
+    </ul>
+    <p class="highlightedItem"><b>Note: </b>We have taken the code from npmjs, some minor changes are done to get
+        rid of the common errors.</p><br><br>
+    <h4>Now let's understand some part of the code:</h4>
+    <ul>
+        <li>So we have installed the package so that we can use it after that we import it on parent module so every
+            child component is aware of it and can use it.
+        <li>dropdownList will populate the starting values in the dropdown.
+        <li>selectedItems will select initial values.
+        <li>dropdownSettings will configure your dropdown which implements an interface named IDropdownSettings.<ul>
+                <li>single selection: decides whether to select multiple values from dropdown or not.
+                <li>idField: dropdown will select values on behalf of this id, the value of selection is binded with
+                    id. If two entry of dropdown have same id then they will be checked and unchecked at same time.
+                <li>textField: this decides what to show in front of the checkboxes.
+                <li>selectAllText & unSelectAllText: text on selectAll and unselectAll link.
+                <li>itemsShowLimit: decides how many selected items need to show on the dropdown. Set it 0 and you
+                    will get rid of the selected value showing over the dropdown.
+                <li>allowSearchFilter: decides whether to give search functionality or not.
+                <li>Want to remove select all feature, just add 'enableCheckAll' attribute and set it to false.
+            </ul>
+            <p>There are many more functions to explore, to know more visit <a
+                    href="https://www.npmjs.com/package/ng-multiselect-dropdown" target="blank">All Function of
+                    ng-multiselect-dropdown</a>
+    </ul>

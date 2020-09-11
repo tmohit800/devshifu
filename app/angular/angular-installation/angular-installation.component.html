@@ -1,0 +1,32 @@
+
+    <h4>Follow below steps to start working on angular on your local system:</h4>
+    <ul>
+        <li>Angular requires one active Node.js version. To download Noad.js, visit <a href="https://nodejs.org/en/"
+                target="blank">nodejs.org</a>
+        <li>After download, install nodejs. Once installation completes, go to cmd(Command Prompt) and run node -v
+            command. If version appeared on the cmd it shows that our node is successfully installed.
+        <li>While installing Node automatically sets the environment variable, but if node -v command throws error,
+            go to environment variable create new variable inside path and set the node js path which will be
+            "C:\Program Files\nodejs".
+        <li>Now close the cmd and open again and again run node -v command. The installed version will appear.
+        <li>Now we will install Angular CLI, a command line interface for the angular. To install this run <span
+                class="codeSnippet">npm install -g @angular/cli</span>, here -g refers to global.
+        <li>After installing Angular CLI, go to cmd and run command <span class="codeSnippet">ng version</span>. If
+            angular CLI is successfully installed, its version will appear on screen.
+    </ul><br>
+    <p>Angular is installed successfully now let's learn some basic commands.
+    <ul type="number">
+        <li><span class="font-weight-bold">ng new my-app</span>: this will create one new angular project with name
+            'my-app'.
+        <li><span class="font-weight-bold">ng g c componentName</span>: this will generate new component, g->
+            generate, c-> component
+        <li><span class="font-weight-bold">npm i</span>: to install packages from package.json, i-> install
+        <li><span class="font-weight-bold">ng g s serviceName</span>: this will generate new service, g-> generate,
+            s-> service
+        <li><span class="font-weight-bold">ng serve</span>: runs the project on localhost, by default on 4200 port
+        <li><span class="font-weight-bold">ng serve --port=4300</span>: runs the project in given port, 4300 in this
+            case
+        <li><span class="font-weight-bold">ng serve --host 0.0.0.0</span>: runs the project as a host server, you
+            can access your project through any other device, by using url in given format-> ip of your
+            system:port(4200 by default)
+    </ul>

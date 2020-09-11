@@ -1,0 +1,40 @@
+
+    <h4>First we will see how to work with Bootstrap</h4>
+    <ul>
+        <li>Install bootstrap by using command <code>npm i bootstrap --save</code>
+        <li>Go to angular.json file inside styles array (of build attribute not of test), paste these path
+            <code>"src/styles.css", "./node_modules/bootstrap/dist/css/bootstrap.min.css"</code>
+        <li>Bootstrap will start to work, if you want to use bootstrap.min.js also, you need to install jquery(till
+            Bootstrap 4, Bootstrap 5 is removing support for jquery).
+        <li>To install jquery, run command <code>npm i jquery --save</code>
+        <li>Again go to angular.json file inside scripts array (of build attribute not of test), paste these path
+            <code>"./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js"</code>.
+            Don't change the sequence of import as jquery need to be imported before because bootstrap require
+            jquery.
+        <li>In case, this doesn't work, cross check whether the path is correct or not and required paths are inside
+            'build' object of angular.json not of 'test' object.
+    </ul>
+    <h4>Now we will see how to start with material</h4>
+    <ul>
+        <li>Install @angular/material using command <code>npm i @angular/material</code>
+        <li>Go to styles.css file and paste the import
+            <code>@import "~@angular/material/prebuilt-themes/indigo-pink.css";</code>. Material requires one theme
+            to start, you can use theme according to your choice.
+        <li>Unlike Bootstrap, to use any angular material component you need to import it in module.ts of component.
+            Till Angular 9 you can import module like this
+            <code>import {{ob}} MatButtonModule {{cb}} from '@angular/material';</code> but from angular 9 you have
+            to import like this <code>import {{ob}} MatButtonModule {{cb}} from '@angular/material/button';</code>.
+            After importing put the Module into imports array of module.
+    </ul>
+    <h4>Jquery is rarely used when we work in angular, still to use it in your component you can follow below steps.</h4>
+    <ul>
+        <li>Install Jquery and put it in scripts we have already done this part in bootstrap installation in above section.</li>
+        <li>Go to html of component and create a button with class 'cls'. <code>&#x3C;button class=&#x22;btn&#x22; type=&#x22;button&#x22;&#x3E;Click Me!&#x3C;/button&#x3E;</code></li>
+        <li>Go to component.ts and import jquery like this <code>import * as $ from 'jquery'</code></li>
+        <li>Go to component.ts file and inside ngOnInit function paster this code. <code>$(&#x27;.btn&#x27;).click(function() {{ob}}
+            alert(&#x22;Button clicked&#x22;);
+          {{cb}})</code></li>
+        <li>Click on button, alert with content Button clicked will come.</li>
+    </ul>
+    <h4>Getting error in JSON path? To use json in your module, you have to change one property.</h4>
+    <ul><li>In your tsconfig.json inside compileOptions add one property <code>"resolveJsonModule": true</code></li><li>If project is running stop it and start again. Error in JSON path will be resolved.</li></ul>

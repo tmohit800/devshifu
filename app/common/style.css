@@ -1,0 +1,61 @@
+.codeSnippet{
+    background-color: yellow;
+}
+
+.jumbotron{
+    width: auto;
+    padding: 10px !important;
+    max-height: 400px;
+    overflow: auto;
+    margin: 15px 0px !important;
+}
+.copyCodeBtn{
+    float: right;
+    border: hidden;
+    background-color: #E9ECEF;
+    color: black;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.copyCodeBtn:hover{
+    background-color: blue;
+    color: white;
+}
+
+mat-form-field {
+    margin-right: 12px;
+}
+
+.codePre{
+    white-space: pre-line;
+}
+
+.imageCls{
+    width: 100%;
+    height: 400px;
+}
+
+.highlightedItem{
+    background: yellow;
+    padding: 5px 10px;
+}
+
+legend{
+    border: 1px solid black; 
+    width: fit-content; 
+    padding: 0px 10px; 
+    margin-left: 20px;
+    border-radius: 4px;
+}
+fieldset{
+    margin: 10px 0px;
+    background-color: #F7F8F8;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+legend{
+    background-color: white;
+}
+fieldset p{
+    padding: 20px;
+}

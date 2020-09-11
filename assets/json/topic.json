@@ -1,0 +1,91 @@
+{
+    "subjects":[
+        {
+            "subject": "Home",
+            "topics": [
+                {
+                    "topic":"HM",
+                    "heading":"Home"
+                },
+                {
+                    "topic":"AB",
+                    "heading":"About"
+                },
+                {
+                    "topic":"CU",
+                    "heading":"Contact Us"
+                }
+            ]
+        },
+         {
+             "subject":"java",
+             "topics":[
+                 {
+                    "topic":"",
+                    "heading":"About"
+                 },
+                 {
+                     "topic":"javainstallation",
+                     "heading":"Java Installation"
+                 },
+                 {
+                     "topic":"howjavaworksinternally",
+                     "heading":"How Java Works Internally"
+                 },
+                 {
+                     "topic":"helloworld",
+                     "heading":"Hello World"
+                 }
+             ]
+         },
+         {
+             "subject":"Web Development"
+         },
+         {
+             "subject":"Angular",
+             "topics":[
+                 {
+                    "topic":"",
+                    "heading":"About"
+                 },
+                 {
+                     "topic":"angularinstallation",
+                     "heading":"Angular Installation"
+                 },
+                 {
+                    "topic":"workingwithlibraries",
+                    "heading":"Working with Bootstrap, Material, Jquery and JSON"
+                 },
+                 {
+                    "topic":"multiselectdropdown",
+                    "heading":"Multi Select Dropdown"
+                },
+                {
+                    "topic": "paginate",
+                    "heading":"Pagination and Sorting in Table"
+                },
+                 {
+                     "topic":"datepicker",
+                     "heading":"DatePicker"
+                 },
+                 {
+                     "topic":"idlesystem",
+                     "heading":"Idle System"
+                 },
+                 {
+                     "topic":"datasharingbetweencomponent",
+                     "heading":"Sharing of data between Component"
+                 }
+             ]
+         },
+         {
+             "subject":"Node JS"
+         },
+         {
+             "subject":"Apache Hadoop"
+         },
+         {
+             "subject":"Apache Storm"
+         }
+    ] 
+ }

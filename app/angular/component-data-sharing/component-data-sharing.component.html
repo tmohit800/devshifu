@@ -1,0 +1,56 @@
+In angular, a component can share data and information with another component, be it
+    sibling or child or parent. There are multiple ways through which components can communicate.<ul>
+        <li>@Input and @Output
+        <li>Shared Services
+        <li>@ViewChild
+    </ul>
+    <p>First, we will go through the easiest of all i.e. Shared Service. In this we will create a common service
+        through which component can fetch common data and also use get and set to automatically update another
+        component value on first component change.
+    <ul>
+        <li>Create two component, either make it sibling or make one parent component other child component.
+            <code>ng g c first</code> and <code>ng g c second</code>
+        <li>No create one service outside of these two component <code>ng g s common</code>
+        <li>Declare service in constructor of both components like this
+            <code>constructor(private service: CommonService){{ob}}{{cb}}</code>
+        <li>Now go to commonservice.ts and paste below code.<div class="jumbotron"><button
+                    (click)="copyCode('sharedservice')" class="copyCodeBtn">Copy</button>
+                <pre id="sharedservice" class="codePre">
+    data: any;
+    setdata(data: any){{ob}}
+    this.data = data;
+    {{cb}}
+    getdata(){{ob}}
+    return this.data;
+    {{cb}}</pre>
+            </div>
+        <li>In first.component.html paste this snippet
+            <code>&lt;input type="text" [(ngModel)]="val"> &lt;button type="button" (click)="submit()">Submit&lt;/button></code>
+        <li>In second.component.html paste this snippet
+            <code>second component is {{ob}}{{ob}}anyvariable{{cb}}{{cb}}</code>
+        <li>In first.component.ts paste below code<div class="jumbotron"><button (click)="copyCode('fcts')"
+                    class="copyCodeBtn">Copy</button>
+                <pre id="fcts" class="codePre">
+    val: any;
+    submit(){{ob}}
+        this.service.setdata(this.val);
+    {{cb}}
+</pre>
+            </div>
+        <li>In second.component.ts paste below code<div class="jumbotron"><button (click)="copyCode('scts')"
+                    class="copyCodeBtn">Copy</button>
+                <pre id="scts" class="codePre">
+get anyvariable(){{ob}}
+    return this.service.getdata();
+  {{cb}}
+</pre>
+            </div>
+        <li>In app.component.ts paste this snippet
+            <code>&lt;app-first>&lt;/app-first> &lt;br> &lt;app-second>&lt;/app-second></code>
+        <li>Run the code enter values in first component textbox, and click on submit the value will be visible in
+            second component.
+    </ul>
+    <p>In first component we enter values and on click of submit we store it into our common service and in
+        second.component.ts we use one method get anyvariable which we bind into html which returns value of data.
+        This get keyword automatically update the value of variable whenever service value changed.
+    <p>This method work in all types of components either they are parents, child or sibling.

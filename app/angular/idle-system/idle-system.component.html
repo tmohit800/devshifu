@@ -1,0 +1,86 @@
+
+    <p>Most of times, you don't really care whether user is active or not. But there are websites which need to have
+        track whether user is active or not, to prevent security attacks, to reduce concurrent user or to reduce
+        traffic on server.
+    <p>To check whether user is interactive or not, whether you could bind an event emitter on every mouse movement
+        or key clicked and on behalf of that you decide whether user is active or not otherwise angular provides one
+        library named <code>@ng-idle</code> to serve you the same purpose.
+    <p>Let's learn how to implement @ng-idle on your system. Through this learning we will give one warning to user
+        that you are idle from sometime, and after that also user remains inactive then we will log them out. We are
+        using bootstrap dialogue box here for warning message, you can use your own.
+    <ul>
+        <li>Install npm module <code>@ng-idle/core</code>.
+        <li>Now we create one component for this Idle system. Run <code>ng g c idle</code>. If you want to put idle
+            check over your whole website, then you need to make these changes in app component only.
+        <li>To create dialog box paste below code to the idle.component.html<div class="jumbotron"><button
+                    (click)="copyCode('idleDialogHtml')" class="copyCodeBtn">Copy</button>
+                <pre id="idleDialogHtml" class="codePre">
+    &lt;div class="modal fade" id="myModal" role="dialog">
+    &lt;div class="modal-dialog">
+      &lt;div class="modal-content">
+        &lt;div class="modal-header">
+          &lt;h4 class="modal-title">Warning Message&lt;/h4>
+        &lt;/div>
+        &lt;div class="modal-body">
+          &lt;p>{{ob}}{{ob}}idleState{{cb}}{{cb}}&lt;/p>
+        &lt;/div>
+        &lt;div class="modal-footer">
+            &lt;button type="button" class="btn btn-primary" data-dismiss="modal" (click)="reset()">Continue&lt;/button>
+            &lt;button type="button" class="btn btn-default" data-dismiss="modal">Close&lt;/button>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;button type="button" id="openModal" data-toggle="modal" hidden data-target="#myModal">&lt;/button>
+  &lt;/div></pre>
+            </div>
+        <li>Paste below code idle.component.ts file.<div class="jumbotron"><button
+                    (click)="copyCode('idleDialogTs')" class="copyCodeBtn">Copy</button>
+                <pre id="idleDialogTs" class="codePre">
+    idleState = 'Not started.';
+    timedOut = false;
+    constructor(private idle : Idle) {{ob}} 
+        this.idle.watch();
+        this.idle.setIdle(5);this.idle.setTimeout(30);this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+        this.idle.onIdleEnd.subscribe(() => {{ob}} 
+        this.idleState = 'No longer idle.';
+        this.reset();
+        {{cb}});
+        this.idle.onTimeout.subscribe(() => {{ob}}
+        this.idleState = 'Timed out!';
+        this.timedOut = true;
+    {{cb}});
+    this.idle.onIdleStart.subscribe(() => {{ob}}
+        this.idleState = 'You\'ve gone idle!';
+        document.getElementById("openModal").click();
+    {{cb}}); 
+    this.idle.onTimeoutWarning.subscribe((countdown) => {{ob}}
+        this.idleState = 'You will be log out in ' + countdown + ' seconds!. Click on Continue to continue your session.'
+    {{cb}});
+    {{cb}}
+    reset() {{ob}}
+    this.idle.watch();
+    this.idleState = 'Started.';
+    this.timedOut = false;
+    {{cb}}</pre>
+            </div>
+        <li>Run your code and wait for 5 second, a modal will appear with 30 second timeout warning.
+    </ul>
+    <p class="highlightedItem"><b>Note: </b>Since this article focused on idle system and to make process simpler we
+        used a hack to open modal from typescript. To do the same in correct manner, you can either use jquery,
+        ngx-bootstrap or can tweak your logic.
+    <p>Let's understand working of some function used in above code.
+    <ul>
+        <li><b>Interrupt</b>: events which tells that system is not idle.
+        <li><code>setIdle(time)</code>: This tells that system will be considered as Idle if there is no interrupt
+            or event for time mentioned.
+        <li><code>setTimeout(time)</code>: This tells that for which time system should wait after it becomes idle.
+        <li><code>watch()</code>: This tells system to look for interrupts or movements. Without this other things
+            don't matter, as system will not look for idle condition.
+        <li><code>setInterrupts(DEFAULT_INTERRUPTSOURCES)</code>: This suggest that which all events will be
+            considered as interrupts. By default all mouse and keyboard event are considerd as Interrupt and came
+            under DEFAULT_INTERRUPTSOURCES.
+        <li><code>onIdleStart</code>: This function executed when idle got started.
+        <li><code>onIdleEnd</code>: This function executed when idle got ended.
+        <li><code>onTimeoutWarning</code>: This function executed when idle got started and timout timer is started.
+        <li><code>onTimeout</code>: This function executed when timout happens.
+    </ul>
