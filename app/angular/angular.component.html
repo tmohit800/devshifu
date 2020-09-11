@@ -1,0 +1,446 @@
+<div class="container-fluid">
+    <div *ngIf="page=='MSD'">
+        <h5>We are using npm module i.e. ng-multiselect-dropdown in below code. This code is applicable for angular2+
+            and not for angularJS.</h5>
+        <ul>
+            <li>Install multiselect-dropdown by running this 'npm install ng-multiselect-dropdown'.
+            <li>Add <span class="codeSnippet">"NgMultiSelectDropDownModule.forRoot()"</span> in imports section of your
+                parent module.ts file. By default it will be app.module.ts but if you have parent module for example A
+                over app module and B component is child of A module then you have to add this snippet in A.module.ts
+                file. Its import will be <span class="codeSnippet">"import {{ob}} NgMultielectDropDownModule {{cb}} from
+                    'ng-multiselect-dropdown'; "</span>
+            <li>Go to your ts file of the component in which you want to add multiselectdropdown and paste below code.
+                <div class="jumbotron"><button (click)="copyCode('dropdowntsfile')" class="copyCodeBtn">Copy</button>
+                    <pre id="dropdowntsfile" class="codePre">
+    dropdownList = [];
+    selectedItems = [];
+    dropdownSettings: IDropdownSettings = {{ob}}{{cb}};
+
+    setDropdownValue(){{ob}}
+    this.dropdownList = [
+        {{ob}}item_id: 1, item_text: 'Mumbai' {{cb}},
+        {{ob}}item_id: 2, item_text: 'Bangaluru' {{cb}},
+        {{ob}}item_id: 3, item_text: 'Pune' {{cb}},
+        {{ob}}item_id: 4, item_text: 'Navsari' {{cb}},
+        {{ob}}item_id: 5, item_text: 'New Delhi' {{cb}}
+    ];
+    this.selectedItems = [
+        {{ob}}item_id: 3, item_text: 'Pune' {{cb}},
+        {{ob}}item_id: 4, item_text: 'Navsari' {{cb}}
+    ];
+    this.dropdownSettings = {{ob}}
+        singleSelection: false,
+        idField: 'item_id',
+        textField: 'item_text',
+        selectAllText: 'Select All',
+        unSelectAllText: 'UnSelect All',
+        itemsShowLimit: 3,
+        allowSearchFilter: true
+    {{cb}};
+
+    onItemSelect(item: any) {{ob}}
+    console.log(item);
+    {{cb}}
+    onSelectAll(items: any) {{ob}}
+    console.log(items);
+    {{cb}}</pre>
+                </div>
+            <li>Call setDropdownValue method in <span class="codeSnippet">ngInit()</span>. Also import <span
+                    class="codeSnippet">"import {{ob}}IDropdownSettings {{cb}} from 'ng-multiselect-dropdown'";</span>
+            <li>Open HTML file and paste below code.<br>
+                <div class="jumbotron"><button (click)="copyCode('dropdownhtml')" class="copyCodeBtn"
+                        type="button">Copy</button>
+                    <pre id="dropdownhtml" class="codePre">
+        &lt;ng-multiselect-dropdown
+        [placeholder]="'custom placeholder'"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+        [(ngModel)]="selectedItems"
+        (onSelect)="onItemSelect($event)"
+        (onSelectAll)="onSelectAll($event)"
+        >&lt;/ng-multiselect-dropdown></pre>
+                </div>
+            <li>Run the code, a dropdown will appear with values Pune and Navsari.
+        </ul>
+        <p class="highlightedItem"><b>Note: </b>We have taken the code from npmjs, some minor changes are done to get
+            rid of the common errors.</p><br><br>
+        <h4>Now let's understand some part of the code:</h4>
+        <ul>
+            <li>So we have installed the package so that we can use it after that we import it on parent module so every
+                child component is aware of it and can use it.
+            <li>dropdownList will populate the starting values in the dropdown.
+            <li>selectedItems will select initial values.
+            <li>dropdownSettings will configure your dropdown which implements an interface named IDropdownSettings.<ul>
+                    <li>single selection: decides whether to select multiple values from dropdown or not.
+                    <li>idField: dropdown will select values on behalf of this id, the value of selection is binded with
+                        id. If two entry of dropdown have same id then they will be checked and unchecked at same time.
+                    <li>textField: this decides what to show in front of the checkboxes.
+                    <li>selectAllText & unSelectAllText: text on selectAll and unselectAll link.
+                    <li>itemsShowLimit: decides how many selected items need to show on the dropdown. Set it 0 and you
+                        will get rid of the selected value showing over the dropdown.
+                    <li>allowSearchFilter: decides whether to give search functionality or not.
+                    <li>Want to remove select all feature, just add 'enableCheckAll' attribute and set it to false.
+                </ul>
+                <p>There are many more functions to explore, to know more visit <a
+                        href="https://www.npmjs.com/package/ng-multiselect-dropdown" target="blank">All Function of
+                        ng-multiselect-dropdown</a>
+        </ul>
+    </div>
+    <div *ngIf="page=='AI'">
+        <h4>Follow below steps to start working on angular on your local system:</h4>
+        <ul>
+            <li>Angular requires one active Node.js version. To download Noad.js, visit <a href="https://nodejs.org/en/"
+                    target="blank">nodejs.org</a>
+            <li>After download, install nodejs. Once installation completes, go to cmd(Command Prompt) and run node -v
+                command. If version appeared on the cmd it shows that our node is successfully installed.
+            <li>While installing Node automatically sets the environment variable, but if node -v command throws error,
+                go to environment variable create new variable inside path and set the node js path which will be
+                "C:\Program Files\nodejs".
+            <li>Now close the cmd and open again and again run node -v command. The installed version will appear.
+            <li>Now we will install Angular CLI, a command line interface for the angular. To install this run <span
+                    class="codeSnippet">npm install -g @angular/cli</span>, here -g refers to global.
+            <li>After installing Angular CLI, go to cmd and run command <span class="codeSnippet">ng version</span>. If
+                angular CLI is successfully installed, its version will appear on screen.
+        </ul><br>
+        <p>Angular is installed successfully now let's learn some basic commands.
+        <ul type="number">
+            <li><span class="font-weight-bold">ng new my-app</span>: this will create one new angular project with name
+                'my-app'.
+            <li><span class="font-weight-bold">ng g c componentName</span>: this will generate new component, g->
+                generate, c-> component
+            <li><span class="font-weight-bold">npm i</span>: to install packages from package.json, i-> install
+            <li><span class="font-weight-bold">ng g s serviceName</span>: this will generate new service, g-> generate,
+                s-> service
+            <li><span class="font-weight-bold">ng serve</span>: runs the project on localhost, by default on 4200 port
+            <li><span class="font-weight-bold">ng serve --port=4300</span>: runs the project in given port, 4300 in this
+                case
+            <li><span class="font-weight-bold">ng serve --host 0.0.0.0</span>: runs the project as a host server, you
+                can access your project through any other device, by using url in given format-> ip of your
+                system:port(4200 by default)
+        </ul>
+    </div>
+    <div *ngIf="page=='DP'">
+        <p>Datepicker are required nowadays very frequently used with different requirements in different
+            formats,different ranges. But sadly, HTML do not provide any mechanism to tweak its datepicker and if there
+            are any ways they are so complex.
+        <p>To get rid of this problem we will look some angular libraries which provide datepicker functionality like
+            angular material, prime-ng.
+        <p>Let's look Angular Material Datepicker, hopefully you have gone through the our angular material setup. If no
+            please check first before, it will help you to understand this section better, <a href="#">Read here</a>.
+        <div class="text-center"><span class="font-weight-bold">Demo for below code.</span>
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Choose a date</mat-label><input [(ngModel)]="myDateVal" [matDatepickerFilter]="dateFilter"
+                    [matDatepicker]="picker" [max]="maxDate" [min]="minDate" matInput>
+                <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div><br><br>
+        <ul>
+            <li>Go to parent module of componentin which datepicker need to be implemented, and import <span
+                    style="background-color:#ff0">MatFormFieldModule, MatDatepickerModule,MatNativeDateModule,
+                    MatInputModule</span> and add them to imports of @NgModule.<div class="jumbotron"><button
+                        (click)="copyCode('datepickerimport')" class="copyCodeBtn">Copy</button>
+                    <pre id="datepickerimport" class="codePre">
+        import {{ob}} MatDatepickerModule {{cb}} from '@angular/material/datepicker';
+        import {{ob}} MatFormFieldModule {{cb}} from '@angular/material/form-field';
+        import {{ob}} MatNativeDateModule {{cb}} from '@angular/material/core';
+        import {{ob}} MatInputModule {{cb}} from '@angular/material/input';</pre>
+                </div>Use only "@angular/material" if angular version is less than 9.
+            <li>Now go to HTML of your component and paste below code.<div class="jumbotron"><button
+                        (click)="copyCode('datepickerhtml')" class="copyCodeBtn">Copy</button>
+                    <pre id="datepickerhtml" class="codePre">
+        &lt;mat-form-field class="example-full-width" appearance="fill">
+        &lt;mat-label>Choose a date&lt;/mat-label>
+        &lt;input [(ngModel)] = "myDateVal" matInput [matDatepicker]="picker">
+        &lt;mat-datepicker-toggle matSuffix [for]="picker">&lt;/mat-datepicker-toggle>
+        &lt;mat-datepicker #picker>&lt;/mat-datepicker>
+        &lt;/mat-form-field></pre>
+                </div>
+            <li>To add min and max validation, add <code>[min]="minDate" [max]="maxDate"</code> to the input and set
+                variable minDate and maxDate in component.ts file. Also add this snippet to ngInit of component.ts file.
+                <code>const currentDate = new Date(); this.minDate = new Date(currentDate.getFullYear(),currentDate.getMonth()-1 , 1); this.maxDate = currentDate;</code>
+            <li>To exclude weekends from calendar we can use filters, add
+                <code>[matDatepickerFilter]="dateFilter"</code> and add below function in component.ts file.<div
+                    class="jumbotron"><button (click)="copyCode('excludeWeekdays')" class="copyCodeBtn">Copy</button>
+                    <pre id="excludeWeekdays" class="codePre">
+        dateFilter = date=>{{ob}}
+            var d = new Date(date);
+            const day = d.getDay();
+            return day!=0&&day!=6;
+        {{cb}}</pre>
+                </div>
+        </ul>
+        <p>By default the format of the datepicker is M/D/YYYY. To change it, the first simplest way is using locale,
+            but if it does not help you to get desired format, you can create your own custom format of datepicker.
+        <h5>Let's see how locale works.</h5>
+        <ul>
+            <li>Install moment and @angular/material-moment-adapter by using command, <code>npm i moment --save</code>
+                and <code>npm i @angular/material-moment-adapter</code>
+            <li>Go to module.ts file and do below steps:<ul>
+                    <li>Import MatMomentDateModule, <code>import {{ob}} MatMomentDateModule {{cb}}</code> from
+                        @angular/material-moment-adapter, and add it to imports.
+                    <li>import MAT_DATE_LOCALE,
+                        <code>import {{ob}} MAT_DATE_LOCALE {{cb}} from '@angular/material/core';</code>
+                    <li>In providers of @NgModule, add this
+                        <code>{{ob}}provide: MAT_DATE_LOCALE, useValue: 'en_IN'{{cb}}</code>
+                </ul>
+            <li>The datepicker now display value in D/M/YYYY format.
+        </ul><br>
+        <h5>Now we have seen how locale works, let's try our own custom formatter.</h5>
+        <p class="highlightedItem"><b>Note: </b>If you are using custom formatter, remove locale provider entry i.e.
+            <code>{{ob}}provide: MAT_DATE_LOCALE, useValue: 'en_IN'{{cb}}</code> and also remove
+            <code>MatMomentDateModule</code> import.
+        <ul>
+            <li>Import MomentDateModule i.e.
+                <code>import {{ob}} MomentDateModule {{cb}} from '@angular/material-moment-adapter';</code>
+            <li>Add below code to providers of @NgModule section<br>
+                <div class="jumbotron"><button (click)="copyCode('customFormatterProvider')"
+                        class="copyCodeBtn">Copy</button>
+                    <pre id="customFormatterProvider" class="codePre">
+        {{ob}}
+        provide: MAT_DATE_FORMATS, useValue:{{ob}}
+            display: {{ob}}
+                dateInput: 'DD/MM/YYYY',
+                monthYearLabel: 'MMM YYYY',
+                dateA11yLabel: 'LL',
+                monthYearA11yLabel: 'MMMM YYYY'
+            {{cb}}
+        {{cb}}{{cb}}
+    </pre>
+                </div>
+        </ul>
+    </div>
+    <div *ngIf="page=='PGS'">
+        <h5>Pagination</h5>
+        <p>Pagination are important part of design and development. There are times we have to show hundreds of records
+            in a page, showing all data in one go looks very bad and also decrease performance. To solve this problem,
+            we introduce pagination to handle records efficiently.
+        <p>There are many ways to implement pagination, if you are using angular datatables, then datatable itself
+            provide pagination and many other functionalities like searching, sorting, filtering and much more, if you
+            are using angular material then material itself provides pagination using mat-paginator. If you are using
+            bootstrap and want to implement pagination then ngx-pagination comes to aid.
+        <p>Let's see how to implement pagination to Bootstrap tables.
+        <ul>
+            <li>First we create data for testing. Paste below code to your ts file.<br>
+                <div class="jumbotron"><button (click)="copyCode('testingPaginator')" class="copyCodeBtn">Copy</button>
+                    <pre id="datepickerimport" id="testingPaginator" class="codePre">
+        pageno : any = 1;
+        itemPage : any = 10;
+        data : any = [];
+        ngOnInit(): void {{ob}} 
+            for(let i=1; i&lt;=30; i++){{ob}}
+            var obj = {{ob}}{{cb}};
+            obj["id"]=i;
+            obj["name"]="name is "+ i;
+            this.data.push(obj);
+            {{cb}}
+        {{cb}}</pre>
+                </div>Variable pageno and itemPage will be used for paginator.<br><br>
+            <li>Paste below code in HTML and run the code.<div class="jumbotron"><button
+                        (click)="copyCode('paginatorHTML')" class="copyCodeBtn">Copy</button>
+                    <pre id="datepickerimport" id="paginatorHTML" class="codePre">
+        &lt;table class="table">
+        &lt;thead>
+            &lt;tr>
+                &lt;th>ID&lt;/th>&lt;th>Name&lt;/th>
+            &lt;/tr>
+        &lt;/thead>
+        &lt;tbody>
+            &lt;tr *ngFor = "let obj of data | paginate: {{ob}}itemsPerPage: itemPage, currentPage: pageno{{cb}}">
+                &lt;td>{{ob}}{{ob}}obj.id{{cb}}{{cb}}&lt;/td>
+                &lt;td>{{ob}}{{ob}}obj.name{{cb}}{{cb}}&lt;/td>
+            &lt;/tr>
+        &lt;/tbody>
+    &lt;/table>
+    &lt;pagination-controls (pageChange)="pageno = $event">&lt;/pagination-controls></pre>
+                </div><br><br>
+        </ul>
+        <br><br>
+        <h5>Sorting</h5>
+    </div>
+    <div *ngIf="page=='IS'">
+        <p>Most of times, you don't really care whether user is active or not. But there are websites which need to have
+            track whether user is active or not, to prevent security attacks, to reduce concurrent user or to reduce
+            traffic on server.
+        <p>To check whether user is interactive or not, whether you could bind an event emitter on every mouse movement
+            or key clicked and on behalf of that you decide whether user is active or not otherwise angular provides one
+            library named <code>@ng-idle</code> to serve you the same purpose.
+        <p>Let's learn how to implement @ng-idle on your system. Through this learning we will give one warning to user
+            that you are idle from sometime, and after that also user remains inactive then we will log them out. We are
+            using bootstrap dialogue box here for warning message, you can use your own.
+        <ul>
+            <li>Install npm module <code>@ng-idle/core</code>.
+            <li>Now we create one component for this Idle system. Run <code>ng g c idle</code>. If you want to put idle
+                check over your whole website, then you need to make these changes in app component only.
+            <li>To create dialog box paste below code to the idle.component.html<div class="jumbotron"><button
+                        (click)="copyCode('idleDialogHtml')" class="copyCodeBtn">Copy</button>
+                    <pre id="idleDialogHtml" class="codePre">
+        &lt;div class="modal fade" id="myModal" role="dialog">
+        &lt;div class="modal-dialog">
+          &lt;div class="modal-content">
+            &lt;div class="modal-header">
+              &lt;h4 class="modal-title">Warning Message&lt;/h4>
+            &lt;/div>
+            &lt;div class="modal-body">
+              &lt;p>{{ob}}{{ob}}idleState{{cb}}{{cb}}&lt;/p>
+            &lt;/div>
+            &lt;div class="modal-footer">
+                &lt;button type="button" class="btn btn-primary" data-dismiss="modal" (click)="reset()">Continue&lt;/button>
+                &lt;button type="button" class="btn btn-default" data-dismiss="modal">Close&lt;/button>
+            &lt;/div>
+          &lt;/div>
+        &lt;/div>
+        &lt;button type="button" id="openModal" data-toggle="modal" hidden data-target="#myModal">&lt;/button>
+      &lt;/div></pre>
+                </div>
+            <li>Paste below code idle.component.ts file.<div class="jumbotron"><button
+                        (click)="copyCode('idleDialogTs')" class="copyCodeBtn">Copy</button>
+                    <pre id="idleDialogTs" class="codePre">
+        idleState = 'Not started.';
+        timedOut = false;
+        constructor(private idle : Idle) {{ob}} 
+            this.idle.watch();
+            this.idle.setIdle(5);this.idle.setTimeout(30);this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
+            this.idle.onIdleEnd.subscribe(() => {{ob}} 
+            this.idleState = 'No longer idle.';
+            this.reset();
+            {{cb}});
+            this.idle.onTimeout.subscribe(() => {{ob}}
+            this.idleState = 'Timed out!';
+            this.timedOut = true;
+        {{cb}});
+        this.idle.onIdleStart.subscribe(() => {{ob}}
+            this.idleState = 'You\'ve gone idle!';
+            document.getElementById("openModal").click();
+        {{cb}}); 
+        this.idle.onTimeoutWarning.subscribe((countdown) => {{ob}}
+            this.idleState = 'You will be log out in ' + countdown + ' seconds!. Click on Continue to continue your session.'
+        {{cb}});
+        {{cb}}
+        reset() {{ob}}
+        this.idle.watch();
+        this.idleState = 'Started.';
+        this.timedOut = false;
+        {{cb}}</pre>
+                </div>
+            <li>Run your code and wait for 5 second, a modal will appear with 30 second timeout warning.
+        </ul>
+        <p class="highlightedItem"><b>Note: </b>Since this article focused on idle system and to make process simpler we
+            used a hack to open modal from typescript. To do the same in correct manner, you can either use jquery,
+            ngx-bootstrap or can tweak your logic.
+        <p>Let's understand working of some function used in above code.
+        <ul>
+            <li><b>Interrupt</b>: events which tells that system is not idle.
+            <li><code>setIdle(time)</code>: This tells that system will be considered as Idle if there is no interrupt
+                or event for time mentioned.
+            <li><code>setTimeout(time)</code>: This tells that for which time system should wait after it becomes idle.
+            <li><code>watch()</code>: This tells system to look for interrupts or movements. Without this other things
+                don't matter, as system will not look for idle condition.
+            <li><code>setInterrupts(DEFAULT_INTERRUPTSOURCES)</code>: This suggest that which all events will be
+                considered as interrupts. By default all mouse and keyboard event are considerd as Interrupt and came
+                under DEFAULT_INTERRUPTSOURCES.
+            <li><code>onIdleStart</code>: This function executed when idle got started.
+            <li><code>onIdleEnd</code>: This function executed when idle got ended.
+            <li><code>onTimeoutWarning</code>: This function executed when idle got started and timout timer is started.
+            <li><code>onTimeout</code>: This function executed when timout happens.
+        </ul>
+    </div>
+    <div *ngIf="page=='SODBC'">In angular, a component can share data and information with another component, be it
+        sibling or child or parent. There are multiple ways through which components can communicate.<ul>
+            <li>@Input and @Output
+            <li>Shared Services
+            <li>@ViewChild
+        </ul>
+        <p>First, we will go through the easiest of all i.e. Shared Service. In this we will create a common service
+            through which component can fetch common data and also use get and set to automatically update another
+            component value on first component change.
+        <ul>
+            <li>Create two component, either make it sibling or make one parent component other child component.
+                <code>ng g c first</code> and <code>ng g c second</code>
+            <li>No create one service outside of these two component <code>ng g s common</code>
+            <li>Declare service in constructor of both components like this
+                <code>constructor(private service: CommonService){{ob}}{{cb}}</code>
+            <li>Now go to commonservice.ts and paste below code.<div class="jumbotron"><button
+                        (click)="copyCode('sharedservice')" class="copyCodeBtn">Copy</button>
+                    <pre id="sharedservice" class="codePre">
+        data: any;
+        setdata(data: any){{ob}}
+        this.data = data;
+        {{cb}}
+        getdata(){{ob}}
+        return this.data;
+        {{cb}}</pre>
+                </div>
+            <li>In first.component.html paste this snippet
+                <code>&lt;input type="text" [(ngModel)]="val"> &lt;button type="button" (click)="submit()">Submit&lt;/button></code>
+            <li>In second.component.html paste this snippet
+                <code>second component is {{ob}}{{ob}}anyvariable{{cb}}{{cb}}</code>
+            <li>In first.component.ts paste below code<div class="jumbotron"><button (click)="copyCode('fcts')"
+                        class="copyCodeBtn">Copy</button>
+                    <pre id="fcts" class="codePre">
+        val: any;
+        submit(){{ob}}
+            this.service.setdata(this.val);
+        {{cb}}
+    </pre>
+                </div>
+            <li>In second.component.ts paste below code<div class="jumbotron"><button (click)="copyCode('scts')"
+                        class="copyCodeBtn">Copy</button>
+                    <pre id="scts" class="codePre">
+    get anyvariable(){{ob}}
+        return this.service.getdata();
+      {{cb}}
+</pre>
+                </div>
+            <li>In app.component.ts paste this snippet
+                <code>&lt;app-first>&lt;/app-first> &lt;br> &lt;app-second>&lt;/app-second></code>
+            <li>Run the code enter values in first component textbox, and click on submit the value will be visible in
+                second component.
+        </ul>
+        <p>In first component we enter values and on click of submit we store it into our common service and in
+            second.component.ts we use one method get anyvariable which we bind into html which returns value of data.
+            This get keyword automatically update the value of variable whenever service value changed.
+        <p>This method work in all types of components either they are parents, child or sibling.
+    </div>
+    <div *ngIf="page=='WBMJJ'">
+        <h4>First we will see how to work with Bootstrap</h4>
+        <ul>
+            <li>Install bootstrap by using command <code>npm i bootstrap --save</code>
+            <li>Go to angular.json file inside styles array (of build attribute not of test), paste these path
+                <code>"src/styles.css", "./node_modules/bootstrap/dist/css/bootstrap.min.css"</code>
+            <li>Bootstrap will start to work, if you want to use bootstrap.min.js also, you need to install jquery(till
+                Bootstrap 4, Bootstrap 5 is removing support for jquery).
+            <li>To install jquery, run command <code>npm i jquery --save</code>
+            <li>Again go to angular.json file inside scripts array (of build attribute not of test), paste these path
+                <code>"./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js"</code>.
+                Don't change the sequence of import as jquery need to be imported before because bootstrap require
+                jquery.
+            <li>In case, this doesn't work, cross check whether the path is correct or not and required paths are inside
+                'build' object of angular.json not of 'test' object.
+        </ul>
+        <h4>Now we will see how to start with material</h4>
+        <ul>
+            <li>Install @angular/material using command <code>npm i @angular/material</code>
+            <li>Go to styles.css file and paste the import
+                <code>@import "~@angular/material/prebuilt-themes/indigo-pink.css";</code>. Material requires one theme
+                to start, you can use theme according to your choice.
+            <li>Unlike Bootstrap, to use any angular material component you need to import it in module.ts of component.
+                Till Angular 9 you can import module like this
+                <code>import {{ob}} MatButtonModule {{cb}} from '@angular/material';</code> but from angular 9 you have
+                to import like this <code>import {{ob}} MatButtonModule {{cb}} from '@angular/material/button';</code>.
+                After importing put the Module into imports array of module.
+        </ul>
+        <h4>Jquery is rarely used when we work in angular, still to use it in your component you can follow below steps.</h4>
+        <ul>
+            <li>Install Jquery and put it in scripts we have already done this part in bootstrap installation in above section.</li>
+            <li>Go to html of component and create a button with class 'cls'. <code>&#x3C;button class=&#x22;btn&#x22; type=&#x22;button&#x22;&#x3E;Click Me!&#x3C;/button&#x3E;</code></li>
+            <li>Go to component.ts and import jquery like this <code>import * as $ from 'jquery'</code></li>
+            <li>Go to component.ts file and inside ngOnInit function paster this code. <code>$(&#x27;.btn&#x27;).click(function() {{ob}}
+                alert(&#x22;Button clicked&#x22;);
+              {{cb}})</code></li>
+            <li>Click on button, alert with content Button clicked will come.</li>
+        </ul>
+        <h4>Getting error in JSON path? To use json in your module, you have to change one property.</h4>
+        <ul><li>In your tsconfig.json inside compileOptions add one property <code>"resolveJsonModule": true</code></li><li>If project is running stop it and start again. Error in JSON path will be resolved.</li></ul>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+{
+    "subjects":[
+        {
+            "subject": "Home",
+            "topics": [
+                {
+                    "topic":"HM",
+                    "heading":"Home"
+                },
+                {
+                    "topic":"AB",
+                    "heading":"About"
+                },
+                {
+                    "topic":"CU",
+                    "heading":"Contact Us"
+                }
+            ]
+        },
+         {
+             "subject":"java",
+             "topics":[
+                 {
+                     "topic":"JI",
+                     "heading":"Java Installation"
+                 },
+                 {
+                     "topic":"HJWI",
+                     "heading":"How Java Works Internally"
+                 },
+                 {
+                     "topic":"FP",
+                     "heading":"First Program"
+                 }
+             ]
+         },
+         {
+             "subject":"Web Development"
+         },
+         {
+             "subject":"Angular",
+             "topics":[
+                 {
+                     "topic":"AI",
+                     "heading":"Angular Installation"
+                 },
+                 {
+                    "topic":"WBMJJ",
+                    "heading":"Working with Bootstrap, Material, Jquery and JSON"
+                 },
+                 {
+                    "topic":"MSD",
+                    "heading":"Multi Select Dropdown"
+                },
+                {
+                    "topic": "PGS",
+                    "heading":"Pagination and Sorting in Table"
+                },
+                 {
+                     "topic":"DP",
+                     "heading":"DatePicker"
+                 },
+                 {
+                     "topic":"IS",
+                     "heading":"Idle System"
+                 },
+                 {
+                     "topic":"SODBC",
+                     "heading":"Sharing of data between Component"
+                 }
+             ]
+         },
+         {
+             "subject":"Node JS"
+         },
+         {
+             "subject":"Apache Hadoop"
+         },
+         {
+             "subject":"Apache Storm"
+         }
+    ] 
+ }
