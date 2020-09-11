@@ -1,0 +1,92 @@
+{
+    "subjects":[
+         {
+             "subject":"Java",
+             "description":"A High level, object-oriented, platform independent language. Started from 1990, Java is still one of the most used programming language.In this course, you will get to know about some core Java concepts.",
+             "path":"java",
+             "src":"./../assets/images/java-min.png",
+             "topics":[
+                 {
+                     "topic":"JI",
+                     "heading":"Java Installation"
+                 },
+                 {
+                     "topic":"HJWI",
+                     "heading":"How Java Works Internally"
+                 },
+                 {
+                     "topic":"FP",
+                     "heading":"First Program"
+                 }
+             ]
+         },
+         {
+             "subject":"Web Development",
+             "description":"Combination of HTML, CSS to create eye pleasing view for user, called website. In this course, you will get to know about HTML, CSS and Javascript and know how to use them to create good effects.Combination of HTML, CSS to create eye pleasing view for user, called website. In this course, you will get to know about HTML, CSS and Javascript and know how to use them to create good effects.Combination of HTML, CSS to create eye pleasing view for user, called website. In this course, you will get to know about HTML, CSS and Javascript and know how to use them to create good effects.",
+             "path":"webdevelopment",
+             "src":"./../assets/images/webdevelopment-min.png"
+         },
+         {
+             "subject":"Angular",
+             "description":"In this course we learn about AngularJS and Angular2.",
+             "path":"angular",
+             "src":"./../assets/images/angular-min.png",
+             "topics":[
+                 {
+                     "topic":"AI",
+                     "heading":"Angular Installation"
+                 },
+                 {
+                     "topic":"DP",
+                     "heading":"DatePicker"
+                 },
+                 {
+                     "topic": "PG",
+                     "heading":"Pagination"
+                 },
+                 {
+                     "topic":"MSD",
+                     "heading":"Multi Select Dropdown"
+                 },
+                 {
+                     "topic":"IS",
+                     "heading":"Idle System"
+                 },
+                 {
+                     "topic":"ASITC",
+                     "heading":"Apply Sort in Table Column"
+                 },
+                 {
+                     "topic":"SODBC",
+                     "heading":"Sharing of data between Component"
+                 },
+                 {
+                     "topic":"SWB",
+                     "heading":"Start with Bootstrap"
+                 },
+                 {
+                     "topic":"LL",
+                     "heading":"Lazy Loading"
+                 }
+             ]
+         },
+         {
+             "subject":"Node JS",
+             "description":"Node JS is a Javascript based engine to run Javascript code outside the browser. This works as back end services, with real time architecture.",
+             "path":"node",
+             "src":"./../assets/images/node-min.png"
+         },
+         {
+             "subject":"Apache Hadoop",
+             "description":"Hadoop concept came for BigDataHandling. Now a days data are too large to handle through traditional database system. Hadoop comes with feature to hadnle these kind of data.",
+             "path":"hadoop",
+             "src":"./../assets/images/hadoop-min.png"
+         },
+         {
+             "subject":"Apache Storm",
+             "description":"Apache Storm is also for BigDataHandling. While Hadoop focuses on batch processing, Storm focus on real time processing. We will ge to know on these concepts in elaborated way",
+             "path":"storm",
+             "src":"./../assets/images/storm-min.png"
+         }
+    ] 
+ }

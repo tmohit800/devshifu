@@ -1,0 +1,150 @@
+<div class="container-fluid">
+    <div *ngIf="page=='FP'">
+        <h4>Let's create our First Program</h4>
+        <ul>
+            <li>Open Eclipse IDE, click on File icon>New>Other. Search Java Project and create one project.</li>
+            <li>After project creation, create one package inside src folder, here I create package named com.learn.</li>
+            <li>Inside package create class named HelloWorld and select public static void main checkbox below in the screen
+                and create.</li>
+            <li>You can see now file is created with some boilerplate code.</li>
+        </ul>
+        <div class="row">
+            <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+                <div class="jumbotron">
+                    <pre>
+    package com.learn;
+    
+    public class HelloWorld{{openBrace}}
+    
+    public static void main(String[] args){{openBrace}}
+        System.out.println("Hello World");
+        {{closeBrace}}
+    {{closeBrace}}
+    
+                            </pre>
+                </div>
+            </div>
+        </div>
+        <p class="text-center font-weight-bold">HelloWorld.java</p>
+        <br>
+        <ul>
+            <li>Run the program you will get Hello World as output in console.</li>
+        </ul>
+    </div>
+    <div *ngIf="page=='JI'">
+        <h4>Steps to install Java:</h4>
+        <p>To run Java code, we need two things, JRE(Java Runtime Environment) and JVM(Java Virtual Machine), but if you are
+            a developer, you also need JDK(Java Development Kit) to create program. We will discuss about these concepts in
+            next chapter i.e. <a href="" (click)="setPage('How Java Works Internally')">How Java Works Internally</a>.
+            <br>
+            We can not install JVM alone, JVM is a part of JRE. JRE is also bundled with JDK nowadays, so we just have to
+            install JDK to get started.
+        </p>
+        <ul type="number">
+            <li>
+                First we will download & install JDK, to download Click on <a
+                    href="https://www.oracle.com/java/technologies/javase-downloads.html">Download JDK</a>. Click on JDK
+                Download link on that page and download the version according to your system requirements. Now open the
+                installer and install JDK.
+            </li>
+            <li>
+                Now go to Environment Variables of your account,(to open this search environment variable on window search
+                or right click on MyComputer, select properties, select Advanced System Settings, select Environment
+                variables).
+            </li>
+            <li>
+                In environment variables, one variable named path will be present if not create one otherwise edit that
+                variable, create one entry in path by clicking on 'New' and paste bin folder location of your Java. For bin
+                folder location go to C drive->Program Files->Java->jdk->bin, go inside bin folder copy the location and
+                paste on environment variable named path.
+            </li>
+            <li>
+                To check whether java is installed successfully in your system, open Command Prompt and type command javac
+                -version. If java version shows, it shows java installed successfully in your system.
+            </li>
+            <li>
+                Now we can open any text editor, write java code save it with .java extension, and then we can run it, but
+                writing program on notepad is a tedious task and also it is very error prone. To solve this problem, we will
+                install IDE(Integrated Development Environment) which will help us, so that we can put effort on logic
+                building rather than syntax issues. These IDE will help in auto completion of code, give code
+                boilerplate(pre written code), shows syntax error and in lot more things.
+            </li>
+            <li>
+                There are many IDE's out there, you are free to choose one. We are using Eclipse for this learning. To
+                download Eclipse visit <a href="https://www.eclipse.org/downloads/">this link</a> and download Eclipse
+                version whichever you want. We are using Enterprised Edition(EE) in our examples.
+            </li>
+            <li>
+                Install Eclipse.
+            </li>
+        </ul>
+        <br>
+        <p class="text-center" style="font-style: italic;background-color: yellow;">So now, we have installed Java and IDE
+            we will learn how java works internally and then we will write out first code.</p>
+    </div>
+    <div *ngIf="page=='HJWI'">
+        <p>To understand how java works internally, we will first understand three major part of Java compiler.</p>
+        <fieldset>
+            <legend>JVM</legend>
+            <p>
+                JVM is an engine that provides a runtime environment to drive the Java Code or applications. It converts
+                Java bytecode into machine language. JVM is a part of Java Run Environment (JRE). It cannot be separately
+                downloaded and installed. To install JVM, you need to install JRE. The full form of JVM is Java Virtual
+                Machine.
+    
+                In many other programming languages, the compiler produces machine code for a specific system. However, Java
+                compiler produces code for a virtual machine which is called as JVM.
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>JRE</legend>
+            <p>
+                JRE is a piece of a software which is designed to run other software. It contains the class libraries,
+                loader class, and JVM. In simple terms, if you want to run Java program you need JRE. If you are not a
+                programmer, you don't need to install JDK, but just JRE to run Java programs. Though, all JDK versions comes
+                bundled with Java Runtime Environment, so you do not need to download and install the JRE separately in your
+                PC. The full form of JRE is Java Runtime Environment.
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>JDK</legend>
+            <p>
+                JDK is a software development environment used for making applets and Java applications. The full form of
+                JDK is Java Development Kit. Java developers can use it on Windows, macOS, Solaris, and Linux. JDK helps
+                them to code and run Java programs. It is possible to install more than one JDK version on the same
+                computer.
+            </p>
+        </fieldset>
+        <br>
+        <div>
+            Java compiler first converts sourcecode to bytecode, an intermediate code after that JVM execute this bytecode
+            to machine level code and then processing done to get required result. As bytecode is introduced in Java, this
+            makes Java a platform independent language as any system having the JVM can read that bytecode and execute the
+            process.
+        </div>
+        <fieldset>
+            <p>
+                This is how Java works in most simple way: When we write a piece of code and click on run, these steps are
+                executed in order to get our result.
+            </p>
+            <ul>
+                <li>
+                    Java compiler(javac) will convert our piece of code into bytecode.
+                </li>
+                <li>
+                    JVM will be called and convert this bytecode to machine level code.
+                </li>
+                <li>
+                    System processor will get signals from the OS that Java program is trying to execute.
+                </li>
+                <li>
+                    Then processor will load into memory, takes up the machine level code convert it into signals(ON or OFF)
+                    and on behalf of these signals some combinational logic will occur and we get our result.
+                </li>
+            </ul>
+        </fieldset>
+        <br>
+        <p class="text-center" style="background-color: yellow;">As now, we are familiar with java internal working, let's dive into Java First
+            Program.</p>
+    </div>
+</div>
